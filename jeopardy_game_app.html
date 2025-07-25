@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeopardy Game</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #001f3f;
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
+
+    table {
+      width: 100vw;
+      height: 100vh;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 2px solid #0074D9;
+      padding: 1rem;
+    }
+
+    th {
+      background: #0074D9;
+      font-size: 1.25rem;
+    }
+
+    td {
+      background: #005299;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    td.used {
+      background: #111;
+      color: #555;
+      pointer-events: none;
+    }
+
+    #modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #modal-content {
+      background: white;
+      color: black;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+    }
+
+    #close-btn,
+    #show-answer {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="title">Jeopardy Game</h1>
+  <input type="file" id="csvFile" accept=".csv" />
+  <div id="game"></div>
+
+  <div id="modal">
+    <div id="modal-content">
+      <div id="clue"></div>
+      <button id="show-answer">Show Answer</button>
+      <div id="answer" style="display:none; margin-top:1rem;"></div>
+      <button id="close-btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('csvFile');
+    const gameDiv = document.getElementById('game');
+    const modal = document.getElementById('modal');
+    const clueDiv = document.getElementById('clue');
+    const answerDiv = document.getElementById('answer');
+    const showAnswerBtn = document.getElementById('show-answer');
+    const closeBtn = document.getElementById('close-btn');
+    const title = document.getElementById('title');
+
+    let boardData = {};
+
+    function parseAndBuild(file) {
+      Papa.parse(file, {
+        header: true,
+        complete: function (results) {
+          title.style.display = 'none';
+          fileInput.style.display = 'none';
+          buildBoard(results.data);
+        }
+      });
+    }
+
+    fileInput.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (file) parseAndBuild(file);
+    });
+
+    document.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'copy';
+    });
+
+    document.addEventListener('drop', function (e) {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.csv')) {
+        parseAndBuild(file);
+      }
+    });
+
+    function buildBoard(data) {
+      boardData = {};
+      data.forEach(row => {
+        const { Category, Value, Clue, Answer } = row;
+        if (!boardData[Category]) boardData[Category] = {};
+        boardData[Category][Value] = { clue: Clue, answer: Answer };
+      });
+
+      const values = [...new Set(data.map(r => r.Value))].sort((a, b) => +a - +b);
+      const categories = Object.keys(boardData);
+
+      let html = '<table><tr>';
+      categories.forEach(cat => html += `<th>${cat}</th>`);
+      html += '</tr>';
+
+      values.forEach(val => {
+        html += '<tr>';
+        categories.forEach(cat => {
+          const cellData = boardData[cat][val];
+          if (cellData) {
+            html += `<td data-cat="${cat}" data-val="${val}">$${val}</td>`;
+          } else {
+            html += '<td></td>';
+          }
+        });
+        html += '</tr>';
+      });
+
+      html += '</table>';
+      gameDiv.innerHTML = html;
+
+      document.querySelectorAll('td[data-cat]').forEach(td => {
+        td.addEventListener('click', function () {
+          const cat = td.getAttribute('data-cat');
+          const val = td.getAttribute('data-val');
+          const { clue, answer } = boardData[cat][val];
+          clueDiv.textContent = clue;
+          answerDiv.textContent = answer;
+          answerDiv.style.display = 'none';
+          modal.style.display = 'flex';
+          td.classList.add('used');
+        });
+      });
+    }
+
+    showAnswerBtn.onclick = () => answerDiv.style.display = 'block';
+    closeBtn.onclick = () => modal.style.display = 'none';
+  </script>
+</body>
+
+</html>
