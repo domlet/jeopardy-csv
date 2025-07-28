@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Allerta";
+  src: url("fonts/Allerta-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: #001f3f;
+  color: white;
+  text-align: center;
+  font-family: "Allerta", sans-serif;
+  margin: 0;
+}
+
+table {
+  width: 100vw;
+  height: 100vh;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 2px solid #0074d9;
+  padding: 1rem;
+}
+
+th {
+  background: #161c4a;
+  font-size: 1.7rem;
+}
+
+td {
+  background: #2a3598;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+td.used {
+  background: #111;
+  color: #555;
+  pointer-events: none;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
+}
+
+#modal-content {
+  width: 100vw;
+  height: 100vh;
+  vertical-align: middle;
+  background: #2a3598;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  /* max-width: 600px; */
+}
+
+#close-btn,
+#show-answer {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}

@@ -4,78 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeopardy Game</title>
+  <title>Jeopardy Game (CSV-enabled)</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #001f3f;
-      color: white;
-      text-align: center;
-      margin: 0;
-    }
-
-    table {
-      width: 100vw;
-      height: 100vh;
-      table-layout: fixed;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      border: 2px solid #0074D9;
-      padding: 1rem;
-    }
-
-    th {
-      background: #0074D9;
-      font-size: 1.25rem;
-    }
-
-    td {
-      background: #005299;
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-
-    td.used {
-      background: #111;
-      color: #555;
-      pointer-events: none;
-    }
-
-    #modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #modal-content {
-      background: white;
-      color: black;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 600px;
-    }
-
-    #close-btn,
-    #show-answer {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <h1 id="title">Jeopardy Game</h1>
+  <audio id="click-sound" src="sounds/valve.mp3"></audio>
   <input type="file" id="csvFile" accept=".csv" />
   <div id="game"></div>
 
@@ -89,6 +25,10 @@
   </div>
 
   <script>
+    // sound
+    const clickSound = document.getElementById('click-sound');
+
+    // game
     const fileInput = document.getElementById('csvFile');
     const gameDiv = document.getElementById('game');
     const modal = document.getElementById('modal');
@@ -162,6 +102,10 @@
 
       document.querySelectorAll('td[data-cat]').forEach(td => {
         td.addEventListener('click', function () {
+          // Play sound effect
+          clickSound.currentTime = 0;
+          clickSound.play();
+          // game
           const cat = td.getAttribute('data-cat');
           const val = td.getAttribute('data-val');
           const { clue, answer } = boardData[cat][val];
