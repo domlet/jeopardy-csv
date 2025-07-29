@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Crowd Ooohs and Ahhhs in Excitement by noah0189 -- https://freesound.org/s/264499/ -- License: Creative Commons 0 -->
 
 <head>
   <meta charset="UTF-8" />
@@ -12,21 +13,26 @@
 <body>
   <h1 id="title">Jeopardy Game</h1>
   <audio id="click-sound" src="sounds/valve.mp3"></audio>
+  <audio id="ooh-sound" src="sounds/264499__noah0189__crowd-ooohs-and-ahhhs-in-excitement.mp3"></audio>
   <input type="file" id="csvFile" accept=".csv" />
-  <div id="game"></div>
+  <div id="game">Sample game</div>
 
   <div id="modal">
+    <div id="modal-header">
+      <span id="modal-label">Clue</span>
+    </div>
     <div id="modal-content">
       <div id="clue"></div>
-      <button id="show-answer">Show Answer</button>
+      <button id="show-answer">?</button>
       <div id="answer" style="display:none; margin-top:1rem;"></div>
-      <button id="close-btn">Close</button>
+      <button id="close-btn" aria-label="Close">&times;</button>
     </div>
   </div>
 
   <script>
     // sound
     const clickSound = document.getElementById('click-sound');
+    const oohSound = document.getElementById('ooh-sound');
 
     // game
     const fileInput = document.getElementById('csvFile');
@@ -39,6 +45,30 @@
     const title = document.getElementById('title');
 
     let boardData = {};
+
+    // sample game click handler
+    gameDiv.addEventListener('click', function () {
+      if (gameDiv.textContent.trim() === 'Sample game') {
+        fetch('sample.csv')
+          .then(response => {
+            if (!response.ok) throw new Error('No sample.csv found');
+            return response.text();
+          })
+          .then(csvText => {
+            Papa.parse(csvText, {
+              header: true,
+              complete: function (results) {
+                title.style.display = 'none';
+                fileInput.style.display = 'none';
+                buildBoard(results.data);
+              }
+            });
+          })
+          .catch(() => {
+            alert('sample.csv not found.');
+          });
+      }
+    });
 
     function parseAndBuild(file) {
       Papa.parse(file, {
@@ -99,27 +129,49 @@
 
       html += '</table>';
       gameDiv.innerHTML = html;
-
+      // show answer button
+      showAnswerBtn.addEventListener('click', function () {
+        oohSound.currentTime = 0;
+        oohSound.play();
+        answerDiv.style.display = 'block';
+      });
+      // selecting a tile
       document.querySelectorAll('td[data-cat]').forEach(td => {
         td.addEventListener('click', function () {
           // Play sound effect
           clickSound.currentTime = 0;
           clickSound.play();
-          // game
+
+          // ...inside your buildBoard function, in the td click handler...
           const cat = td.getAttribute('data-cat');
           const val = td.getAttribute('data-val');
           const { clue, answer } = boardData[cat][val];
           clueDiv.textContent = clue;
           answerDiv.textContent = answer;
           answerDiv.style.display = 'none';
+          // Update only the label, not the whole header
+          document.getElementById('modal-label').textContent = `${cat} for $${val}`;
           modal.style.display = 'flex';
           td.classList.add('used');
         });
       });
     }
 
+    // show answer actions
     showAnswerBtn.onclick = () => answerDiv.style.display = 'block';
+    document.addEventListener('keydown', function (event) {
+      if (event.key === ' ' || event.key === 'Enter') {
+        answerDiv.style.display = 'block';
+      }
+    });
+    // close modal actions
     closeBtn.onclick = () => modal.style.display = 'none';
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'x' || event.key === 'X' || event.key === 'Escape') {
+        modal.style.display = 'none';
+      }
+    });
+
   </script>
 </body>
 
