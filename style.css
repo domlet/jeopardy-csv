@@ -7,7 +7,7 @@
 
 body {
   background-color: black;
-  background: url("images/crowd.jpg") no-repeat bottom / 100% auto fixed;
+  background: linear-gradient(rgba(42, 53, 152, 0.6)), url("images/crowd.jpg") repeat-y 170% / 100% auto fixed;
   color: white;
   text-align: center;
   font-family: "Allerta", sans-serif;
@@ -23,26 +23,28 @@ h1 {
 table {
   background: #2a3598;
   width: 100vw;
-  height: 88vh;
+  height: 84vh;
   table-layout: fixed;
   border-collapse: collapse;
+  margin-bottom: 14vh;
 }
 
 th,
 td {
   border: 2px solid #0074d9;
-  padding: 1rem;
 }
 
 th {
   background: #161c4a;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
+  padding: 0.3rem;
 }
 
 td {
   background: #2a3598;
   cursor: pointer;
   font-size: 3rem;
+  letter-spacing: 2px;
 }
 
 td.used {
@@ -91,9 +93,13 @@ td:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 4.5em;
+  font-size: 4em;
   /* padding: 1rem; */
   /* text-transform: uppercase; */
+}
+
+#clue {
+  padding: 0.5em;
 }
 
 #close-btn {
@@ -150,6 +156,8 @@ td:hover {
   justify-content: center;
   align-items: center;
 }
+/* individual Team box styles */
+
 .team-box {
   background: #ae5d2c;
   height: 11vh;
@@ -161,45 +169,68 @@ td:hover {
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  padding: 0.5em;
-  margin: 0.4em;
-  border: dashed 5px #ffc730;
+  padding: 0.3em;
+  margin: 0.3em;
+  border: dashed 3px #ffc730;
 }
 .team-box input {
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
-  width: 95%;
-  margin-bottom: 0.5em;
+  width: 90%;
   background: white;
   color: #222;
-  margin-top: 0.8em;
+  margin: 0;
 }
 .team-box input:focus {
   background: #fff;
 }
+
 .team-box .team-score {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bold;
   color: #fff;
+  margin: 0;
+  padding: ;
 }
 
-/* Individual Team up/down scorekeeping arrow buttons */
+.team-score,
+td {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+.team-box div {
+  position: relative;
+  top: -0.5em;
+}
 .team-arrow-btn {
-  font-size: 3em;
+  /* position: relative;
+  top: -1em; */
+  font-family: monospace;
+  font-size: 2em;
+  line-height: 0.5em;
+  color: black;
   border: none;
-  background: none;
-  color: #fff;
+  border: 2px solid black;
+  border-radius: 1em;
   font-weight: bold;
   cursor: pointer;
-  display: flex;
+  display: inline-block;
+  position: relative;
   align-items: center;
   justify-content: center;
   transition: background 0.2s, color 0.2s;
-  margin: 0 0.5em;
+  padding: 0.25em;
+  margin: 0 0.2em;
 }
 
-/* Team plus/minus buttons */
+.team-arrow-btn:hover {
+  color: white;
+  border-color: white;
+}
+
+/* add/remove Team plus/minus buttons */
 .team-btn {
   font-size: 5em;
   border: none;
@@ -211,9 +242,10 @@ td:hover {
   align-items: center;
   justify-content: center;
   transition: background 0.2s, color 0.2s;
-  margin: 0 0.5em;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -2px 0 0 white, 2px 0 0 white, 0 -2px 0 white, 0 2px 0 white;
+  margin: 0 0.2em;
+  padding: 0;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -2px 0 0 white, 2px 0 0 white;
 }
 .team-btn:hover {
-  color: #fff;
+  color: #ffc730;
 }

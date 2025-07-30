@@ -39,8 +39,21 @@ function renderTeamBoxContainer(teams) {
     const upBtn = document.createElement("button");
     upBtn.type = "button";
     upBtn.className = "team-arrow-btn";
-    upBtn.innerHTML = "▾";
-    upBtn.style.transform = "rotate(180deg)";
+    upBtn.innerHTML = "+";
+    upBtn.style.backgroundColor = "#23C552";
+
+    // Down button
+    const downBtn = document.createElement("button");
+    downBtn.type = "button";
+    downBtn.className = "team-arrow-btn";
+    downBtn.innerHTML = "-";
+    downBtn.style.backgroundColor = "#F84F31";
+
+    // Button group container for horizontal layout
+    const btnGroup = document.createElement("div");
+    btnGroup.style.display = "flex";
+    btnGroup.appendChild(downBtn);
+    btnGroup.appendChild(upBtn);
 
     // Team name input
     const nameInput = document.createElement("input");
@@ -50,24 +63,17 @@ function renderTeamBoxContainer(teams) {
       team.name = e.target.value;
     };
 
-    // Down button
-    const downBtn = document.createElement("button");
-    downBtn.type = "button";
-    downBtn.className = "team-arrow-btn";
-    downBtn.innerHTML = "▾";
-
     // Team score
     const scoreDiv = document.createElement("div");
     scoreDiv.className = "team-score";
-    scoreDiv.textContent = team.score;
+    scoreDiv.textContent = "$" + team.score.toLocaleString();
 
-    box.appendChild(upBtn);
+    // Arrange: upBtn, downBtn (block), input, score
+    box.appendChild(btnGroup);
     box.appendChild(nameInput);
-    box.appendChild(downBtn);
     box.appendChild(scoreDiv);
     teamBoxContainer.appendChild(box);
   });
-
   // Add plus button to the right
   teamBoxContainer.appendChild(plusBtn);
 
