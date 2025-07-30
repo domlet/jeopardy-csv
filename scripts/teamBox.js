@@ -41,6 +41,10 @@ function renderTeamBoxContainer(teams) {
     upBtn.className = "team-arrow-btn";
     upBtn.innerHTML = "+";
     upBtn.style.backgroundColor = "#23C552";
+    upBtn.onclick = () => {
+      team.score += 100;
+      renderTeamBoxContainer(teams);
+    };
 
     // Down button
     const downBtn = document.createElement("button");
@@ -48,6 +52,10 @@ function renderTeamBoxContainer(teams) {
     downBtn.className = "team-arrow-btn";
     downBtn.innerHTML = "-";
     downBtn.style.backgroundColor = "#F84F31";
+    downBtn.onclick = () => {
+      team.score -= 100;
+      renderTeamBoxContainer(teams);
+    };
 
     // Button group container for horizontal layout
     const btnGroup = document.createElement("div");

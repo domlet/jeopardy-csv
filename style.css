@@ -22,7 +22,7 @@ h1 {
 
 table {
   background: #2a3598;
-  width: 100vw;
+  width: 100%;
   height: 84vh;
   table-layout: fixed;
   border-collapse: collapse;
@@ -172,8 +172,15 @@ td:hover {
   margin: 0.3em;
   border: dashed 3px #ffc730;
 }
+
+.team-box div {
+  position: static; /* or remove this rule entirely if not needed */
+  top: -10px;
+  background-color: rebeccapurple;
+}
+
 .team-box input {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: bold;
   text-align: center;
   width: 90%;
@@ -204,8 +211,6 @@ td {
   top: -0.5em;
 }
 .team-arrow-btn {
-  /* position: relative;
-  top: -1em; */
   font-family: monospace;
   font-size: 2em;
   line-height: 0.5em;
