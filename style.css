@@ -173,12 +173,6 @@ td:hover {
   border: dashed 3px #ffc730;
 }
 
-.team-box div {
-  position: static; /* or remove this rule entirely if not needed */
-  top: -10px;
-  background-color: rebeccapurple;
-}
-
 .team-box input {
   font-size: 1.25em;
   font-weight: bold;
@@ -186,7 +180,7 @@ td:hover {
   width: 90%;
   background: white;
   color: #222;
-  margin: 0;
+  margin: 0 0 0.25em 0;
 }
 .team-box input:focus {
   background: #fff;
@@ -197,7 +191,6 @@ td:hover {
   font-weight: bold;
   color: #fff;
   margin: 0;
-  padding: ;
 }
 
 .team-score,
@@ -206,9 +199,11 @@ td {
   font-weight: bolder;
 }
 
-.team-box div {
+.team-box div,
+.team-box input {
   position: relative;
-  top: -0.5em;
+  top: -0.7em;
+  margin-top: 0.3em;
 }
 .team-arrow-btn {
   font-family: monospace;
