@@ -7,15 +7,56 @@
 
 body {
   background-color: black;
-  background: linear-gradient(rgba(42, 53, 152, 0.6)), url("images/crowd.jpg") repeat-y 170% / 100% auto fixed;
+  background: url("images/stage.jpg") fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: white;
   text-align: center;
   font-family: "Allerta", sans-serif;
   margin: 0;
+  height: 100%;
+}
+
+#title,
+h4 {
+  background-color: rgba(42, 53, 152, 0.7);
+  border-radius: 2rem;
+  border: 0.5rem solid #ffc730;
+  padding: 4rem 1.5rem;
+  margin: 5vw;
+}
+
+#title input,
+h4 {
+  background-color: #ffc730;
+  color: black;
+  border-radius: 0.6rem;
+  border: 0.2rem solid white;
+  margin: 5vw 0;
+  display: inline-block;
+  padding: 1rem 2rem;
+  box-shadow: #111 0.2rem 0.2rem 0.4rem;
+  font-family: "Allerta";
+  src: url("fonts/Allerta-Regular.ttf") format("truetype");
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 2rem;
+  text-transform: uppercase;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0);
+  border-width: 0.1em;
+}
+
+#logo {
+  width: 70vw;
+}
+
+#csvFile {
+  font-size: 1em;
 }
 
 /* Below are styles for game board */
@@ -187,7 +228,7 @@ td:hover {
 }
 
 .team-box .team-score {
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: bold;
   color: #fff;
   margin: 0;

@@ -7,8 +7,8 @@ window.initModalLogic = function ({ showAnswerBtn, answerDiv, oohSound, closeBtn
   });
 
   closeBtn.addEventListener("click", function () {
-    clickSound.currentTime = 0;
-    clickSound.play();
+    microclickSound.currentTime = 0;
+    microclickSound.play();
     modal.style.display = "none";
   });
 

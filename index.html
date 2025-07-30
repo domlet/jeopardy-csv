@@ -2,7 +2,8 @@
 <html lang="en">
 <!-- Crowd Ooohs and Ahhhs in Excitement by noah0189 -- https://freesound.org/s/264499/ -- License: Creative Commons 0 -->
 <!-- crowd.jpg "Metallica at Rock Werchter 2009 ♫♪" by crsan is licensed under CC BY 2.0. -->
-<!-- stage.jpg -->
+<!-- stage.jpg Steve Jurvetson BY https://www.flickr.com/photos/jurvetson/6514526225/in/photolist-aVEDFF-aVEDEV -->
+<!-- Micro_Clicks_001.wav by AlienXXX -- https://freesound.org/s/273833/ -- License: Attribution 4.0 -->
 
 <head>
   <meta charset="UTF-8" />
@@ -15,11 +16,17 @@
 </head>
 
 <body>
-  <h1 id="title">Jeopardy Game</h1>
+  <h1 id="title">
+    <img id="logo" src="images/jeopardy-logo.png" alt="Jeopardy Game Logo">
+    <br />Jeopardy Game<br />
+    <input type="file" id="csvFile" accept=".csv" />
+  </h1>
+  <div id="game">
+    <h4>Sample game</h4>
+  </div>
   <audio id="click-sound" src="sounds/valve.mp3"></audio>
   <audio id="ooh-sound" src="sounds/264499__noah0189__crowd-ooohs-and-ahhhs-in-excitement.mp3"></audio>
-  <input type="file" id="csvFile" accept=".csv" />
-  <div id="game">Sample game</div>
+  <audio id="microclick-sound" src="sounds/273833__alienxxx__micro_clicks_001.wav"></audio>
 
   <div id="modal">
     <div id="modal-header">
@@ -47,12 +54,13 @@
     const closeBtn = document.getElementById('close-btn');
     // sounds
     const clickSound = document.getElementById('click-sound');
+    const microclickSound = document.getElementById('microclick-sound');
     const oohSound = document.getElementById('ooh-sound');
 
     let boardData = {};
     let teams = [
-      { name: "Team 1", score: 20500 },
-      { name: "Team 2", score: 100 }
+      { name: "Team 1", score: 0 },
+      { name: "Team 2", score: 0 }
     ];
 
     // Initialize modal logic
@@ -66,6 +74,7 @@
 
     // link to play the sample game (on initial screen)
     gameDiv.addEventListener('click', function () {
+
       if (gameDiv.textContent.trim() === 'Sample game') {
         fetch('sample.csv')
           .then(response => {
@@ -171,6 +180,8 @@
           td.classList.add('used');
         });
       });
+      microclickSound.currentTime = 0;
+      microclickSound.play();
     }
 
 

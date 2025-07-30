@@ -14,6 +14,8 @@ function renderTeamBoxContainer(teams) {
   minusBtn.className = "team-btn";
   minusBtn.onclick = () => {
     if (teams.length > 1) {
+      microclickSound.currentTime = 0;
+      microclickSound.play();
       teams.pop();
       renderTeamBoxContainer(teams);
     }
@@ -24,6 +26,8 @@ function renderTeamBoxContainer(teams) {
   plusBtn.textContent = "+";
   plusBtn.className = "team-btn";
   plusBtn.onclick = () => {
+    microclickSound.currentTime = 0;
+    microclickSound.play();
     teams.push({ name: `Team ${teams.length + 1}`, score: 0 });
     renderTeamBoxContainer(teams);
   };
@@ -42,6 +46,8 @@ function renderTeamBoxContainer(teams) {
     upBtn.innerHTML = "+";
     upBtn.style.backgroundColor = "#23C552";
     upBtn.onclick = () => {
+      microclickSound.currentTime = 0;
+      microclickSound.play();
       team.score += 100;
       renderTeamBoxContainer(teams);
     };
@@ -53,6 +59,8 @@ function renderTeamBoxContainer(teams) {
     downBtn.innerHTML = "-";
     downBtn.style.backgroundColor = "#F84F31";
     downBtn.onclick = () => {
+      microclickSound.currentTime = 0;
+      microclickSound.play();
       team.score -= 100;
       renderTeamBoxContainer(teams);
     };
