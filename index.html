@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Crowd Ooohs and Ahhhs in Excitement by noah0189 -- https://freesound.org/s/264499/ -- License: Creative Commons 0 -->
+<!-- "Metallica at Rock Werchter 2009 ♫♪" by crsan is licensed under CC BY 2.0. -->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeopardy Game (CSV-enabled)</title>
+  <script src="scripts/teamBox.js"></script>
+  <script src="scripts/modal.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -30,23 +33,37 @@
   </div>
 
   <script>
-    // sound
-    const clickSound = document.getElementById('click-sound');
-    const oohSound = document.getElementById('ooh-sound');
 
     // game
     const fileInput = document.getElementById('csvFile');
     const gameDiv = document.getElementById('game');
+    const title = document.getElementById('title');
+    // modal
     const modal = document.getElementById('modal');
     const clueDiv = document.getElementById('clue');
     const answerDiv = document.getElementById('answer');
     const showAnswerBtn = document.getElementById('show-answer');
     const closeBtn = document.getElementById('close-btn');
-    const title = document.getElementById('title');
+    // sounds
+    const clickSound = document.getElementById('click-sound');
+    const oohSound = document.getElementById('ooh-sound');
 
     let boardData = {};
+    let teams = [
+      { name: "Team 1", score: 0 },
+      { name: "Team 2", score: 0 }
+    ];
 
-    // sample game click handler
+    // Initialize modal logic
+    initModalLogic({
+      showAnswerBtn,
+      answerDiv,
+      oohSound,
+      closeBtn,
+      modal
+    });
+
+    // link to play the sample game (on initial screen)
     gameDiv.addEventListener('click', function () {
       if (gameDiv.textContent.trim() === 'Sample game') {
         fetch('sample.csv')
@@ -129,12 +146,10 @@
 
       html += '</table>';
       gameDiv.innerHTML = html;
-      // show answer button
-      showAnswerBtn.addEventListener('click', function () {
-        oohSound.currentTime = 0;
-        oohSound.play();
-        answerDiv.style.display = 'block';
-      });
+
+      // create team boxes and scoring widgets 
+      renderTeamBoxContainer(teams); // teamBox.js
+
       // selecting a tile
       document.querySelectorAll('td[data-cat]').forEach(td => {
         td.addEventListener('click', function () {
@@ -157,20 +172,6 @@
       });
     }
 
-    // show answer actions
-    showAnswerBtn.onclick = () => answerDiv.style.display = 'block';
-    document.addEventListener('keydown', function (event) {
-      if (event.key === ' ' || event.key === 'Enter') {
-        answerDiv.style.display = 'block';
-      }
-    });
-    // close modal actions
-    closeBtn.onclick = () => modal.style.display = 'none';
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'x' || event.key === 'X' || event.key === 'Escape') {
-        modal.style.display = 'none';
-      }
-    });
 
   </script>
 </body>

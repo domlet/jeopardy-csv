@@ -6,16 +6,24 @@
 }
 
 body {
-  background: #2a3598;
+  background-color: black;
+  background: url("images/crowd.jpg") no-repeat bottom / 100% auto fixed;
   color: white;
   text-align: center;
   font-family: "Allerta", sans-serif;
   margin: 0;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
+/* Below are styles for game board */
+
 table {
+  background: #2a3598;
   width: 100vw;
-  height: 100vh;
+  height: 88vh;
   table-layout: fixed;
   border-collapse: collapse;
 }
@@ -51,6 +59,8 @@ td:hover {
   background: #161c4a;
   color: #ffc730;
 }
+
+/* Below are styles for modals */
 
 #modal {
   display: none;
@@ -118,5 +128,92 @@ td:hover {
 
 #close-btn:hover,
 #show-answer:hover {
+  color: #fff;
+}
+
+#modal:where([style*="display: flex"], [style*="display: block"]) ~ .team-box-container,
+#modal[style*="display: flex"] ~ .team-box-container,
+#modal[style*="display: block"] ~ .team-box-container {
+  display: none !important;
+}
+
+/* Below are styles for team podiums (bottom) */
+
+.team-box-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-box {
+  background: #ae5d2c;
+  height: 11vh;
+  width: 11vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5em;
+  margin: 0.4em;
+  border: dashed 5px #ffc730;
+}
+.team-box input {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  width: 95%;
+  margin-bottom: 0.5em;
+  background: white;
+  color: #222;
+  margin-top: 0.8em;
+}
+.team-box input:focus {
+  background: #fff;
+}
+.team-box .team-score {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Individual Team up/down scorekeeping arrow buttons */
+.team-arrow-btn {
+  font-size: 3em;
+  border: none;
+  background: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  margin: 0 0.5em;
+}
+
+/* Team plus/minus buttons */
+.team-btn {
+  font-size: 5em;
+  border: none;
+  background: none;
+  color: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  margin: 0 0.5em;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -2px 0 0 white, 2px 0 0 white, 0 -2px 0 white, 0 2px 0 white;
+}
+.team-btn:hover {
   color: #fff;
 }
