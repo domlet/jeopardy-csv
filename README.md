@@ -2,7 +2,7 @@
 
 ![Jeopardy-CSV](/images/jeopardy-csv-logo-blu.png)
 
-Fast and simple Jeopardy-style classroom game show. Made by [@domlet](https://domlet.github.io/) for classroom teachers. Just drag a CSV file onto the [game screen](indexhtml) to start play. Nothing fancy. Use a computer (not a phone) to host the game.
+Fast and simple Jeopardy-style classroom game show. Made by a classroom teacher ([@domlet](https://domlet.github.io/)) for classroom teachers. Just drag a CSV file onto the [game screen](indexhtml) to start play. Nothing fancy. Use a computer (not a phone) to host the game.
 
 **Does not include:** Double Jeopardy, Daily Double, Final Jeopardy, or timing controls.
 

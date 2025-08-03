@@ -19,20 +19,29 @@
   <h1 id="title">
     <img id="logo" src="images/jeopardy-csv-logo.png" alt="Jeopardy CSV Logo">
     <br />Jeopardy Game<br />
-    <!-- <input type="file" id="csvFile" accept=".csv" /> -->
-    <!-- <input type="file" id="csvFile" accept=".csv" style="display:none;"> -->
-    <input type="file" id="csvFile" accept=".csv" style="display:none;">
-    <label for="csvFile" class="drop-zone">
-      <div class="drop-zone-content">
-        <div class="drop-icon">📂</div>
-        <div class="drop-text">Drag & Drop CSV Here<br><small>or click to browse</small></div>
-      </div>
-    </label>
-  </h1>
 
-  <div id="game">
-    <h4>Sample game</h4>
-  </div>
+    <div class="title-content">
+      <label for="csvFile" class="drop-zone">
+        <div class="drop-zone-content">
+          <div class="drop-icon">📂</div>
+          <div class="drop-text">Drag & Drop CSV Here<br><small>or click to browse</small></div>
+        </div>
+      </label>
+
+      <div class="title-section">
+        <h4>Sample game</h4>
+      </div>
+      <a href="https://github.com/domlet/jeopardy-csv?tab=readme-ov-file#jeopardy-csv" target="_blank">
+        <div class="title-section">
+          <h4>Instructions</h4>
+        </div>
+      </a>
+    </div>
+
+    <input type="file" id="csvFile" accept=".csv" style="display:none;">
+  </h1>
+  <div id="game"></div>
+
   <audio id="click-sound" src="sounds/valve.mp3"></audio>
   <audio id="ooh-sound" src="sounds/264499__noah0189__crowd-ooohs-and-ahhhs-in-excitement.mp3"></audio>
   <audio id="microclick-sound" src="sounds/273833__alienxxx__micro_clicks_001.wav"></audio>
@@ -85,9 +94,8 @@
     });
 
     // link to play the sample game (on initial screen)
-    gameDiv.addEventListener('click', function () {
-
-      if (gameDiv.textContent.trim() === 'Sample game') {
+    document.querySelector('.title-section').addEventListener('click', function () {
+      if (this.querySelector('h4').textContent.trim() === 'Sample game') {
         fetch('sample.csv')
           .then(response => {
             if (!response.ok) throw new Error('No sample.csv found');
