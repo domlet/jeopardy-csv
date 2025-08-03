@@ -30,4 +30,13 @@ window.initModalLogic = function ({ showAnswerBtn, answerDiv, oohSound, closeBtn
       modal.style.display = "none";
     }
   });
+
+  // Timeout sound
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "5") {
+      timeoutSound.currentTime = 0;
+      timeoutSound.play();
+      document.getElementById("modal-content").style.backgroundColor = "gray";
+    }
+  });
 };

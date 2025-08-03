@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Crowd Ooohs and Ahhhs in Excitement by noah0189 -- https://freesound.org/s/264499/ -- License: Creative Commons 0 -->
-<!-- crowd.jpg "Metallica at Rock Werchter 2009 ♫♪" by crsan is licensed under CC BY 2.0. -->
 <!-- stage.jpg Steve Jurvetson BY https://www.flickr.com/photos/jurvetson/6514526225/in/photolist-aVEDFF-aVEDEV -->
+<!-- crowd.jpg "Metallica at Rock Werchter 2009 ♫♪" by crsan is licensed under CC BY 2.0. -->
+<!-- Crowd Ooohs and Ahhhs in Excitement by noah0189 -- https://freesound.org/s/264499/ -- License: Creative Commons 0 -->
 <!-- Micro_Clicks_001.wav by AlienXXX -- https://freesound.org/s/273833/ -- License: Attribution 4.0 -->
 
 <head>
@@ -36,6 +36,7 @@
   <audio id="click-sound" src="sounds/valve.mp3"></audio>
   <audio id="ooh-sound" src="sounds/264499__noah0189__crowd-ooohs-and-ahhhs-in-excitement.mp3"></audio>
   <audio id="microclick-sound" src="sounds/273833__alienxxx__micro_clicks_001.wav"></audio>
+  <audio id="timeout-sound" src="sounds/timeout.mp3"></audio>
 
   <div id="modal">
     <div id="modal-header">
@@ -63,8 +64,9 @@
     const closeBtn = document.getElementById('close-btn');
     // sounds
     const clickSound = document.getElementById('click-sound');
-    const microclickSound = document.getElementById('microclick-sound');
     const oohSound = document.getElementById('ooh-sound');
+    const microclickSound = document.getElementById('microclick-sound');
+    const timeoutSound = document.getElementById('timeout-sound');
 
     let boardData = {};
     let teams = [
@@ -78,7 +80,8 @@
       answerDiv,
       oohSound,
       closeBtn,
-      modal
+      modal,
+      timeoutSound
     });
 
     // link to play the sample game (on initial screen)
