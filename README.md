@@ -1,4 +1,4 @@
-# Jeopard-CSV
+# Jeopardy-CSV
 
 ![Jeopardy-CSV](/images/jeopardy-csv-logo-blu.png)
 
