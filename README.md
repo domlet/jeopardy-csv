@@ -1,4 +1,6 @@
-# ![Jeopardy-CSV](/images/jeopardy-csv-logo-blu.png)
+# Summary
+
+![Jeopardy-CSV](/images/jeopardy-csv-logo-blu.png)
 
 Fast and simple Jeopardy-style classroom game show. Made by [@domlet](https://domlet.github.io/) for classroom teachers. Just drag a CSV file onto the [game screen](indexhtml) to start play. Nothing fancy. Use a computer (not a phone) to host the game.
 
@@ -11,6 +13,10 @@ Host can change **font size** with `⌘+` and `⌘-` (Mac) or `Control+` and `Co
 Questions or comments? Use the [comments form here](https://domlet.github.io/).
 
 ## Instructions
+
+<div align="center">
+<video src="https://github.com/locaal-ai/obs-backgroundremoval/assets/1067855/5ba5aae2-7ea2-4c90-ad45-fba5ccde1a4e" width="400"></video>
+</div>
 
 ### Play Game (Simple Mode)
 
