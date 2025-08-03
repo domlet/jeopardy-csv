@@ -14,9 +14,9 @@ Questions or comments? Use the [comments form here](https://domlet.github.io/).
 
 ## Instructions
 
-<div align="center">
+<!-- <div align="center">
 <video src="https://github.com/locaal-ai/obs-backgroundremoval/assets/1067855/5ba5aae2-7ea2-4c90-ad45-fba5ccde1a4e" width="400"></video>
-</div>
+</div> -->
 
 ### Play Game (Simple Mode)
 
