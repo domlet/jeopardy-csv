@@ -10,37 +10,37 @@ Host can change **font size** with `⌘+` and `⌘-` (Mac) or `Control+` and `Co
 
 Questions or comments? Use the [comments form here](https://domlet.github.io/).
 
-## How It Works
+## Instructions
 
-### Simple mode
+### Play Game (Simple Mode)
 
-- [Use this slide]() to explain game play.
+- [Use this slide](https://docs.google.com/presentation/d/19xjwrqt-tvVk85XkU_7MRocQ3fE2uTknxe36J5nAPg8/edit?slide=id.g372bb133f6c_0_1418#slide=id.g372bb133f6c_0_1418) to explain game play in 60 seconds.
 - Divide your group into 7 (or fewer) teams.
 - [Load the game](https://domlet.github.io/jeopardy-csv) and drag a [CSV file](sample.csv) onto it.
-- Click `-` or `+` to add or remove teams.
-- **Optional:** Update team names (`Team 1`, `Team 2`, `Team 3`...)
+- Click `+` or `-` to add or remove teams.
+- **Optional:** Click and type to rename teams (`Team 1`, `Team 2`, `Team 3`...)
 - Play the game! (15-45 min)
 
-### Enhanced mode (buzzer system)
+### Play Game (Enhanced Mode w/buzzers)
 
-You can use another device (such as a tablet or smart phone) to operate a buzzer system. This can help reduce facilitator bias. However, buzzer enthusiasm can lead to hardware damage, so I recommend using students' mobile phones as buzzers (not laptops or Chromebooks).
+As host, you can use another device (ie, tablet or mobile device) to operate a buzzer system. This can help reduce facilitator bias. However, buzzer enthusiasm can lead to hardware damage, so I recommend using students' mobile phones as buzzers (not laptops or Chromebooks). Here are instructions:
 
 - **Optional:** Create a [Buzzonk](https://buzzonk.com/) room to track who buzzes in first.
-- **Optional:** Each team should customize their name on Buzzonk.
-- **Optional:** Update team names on game screen (`Team 1`, `Team 2`, `Team 3`...)
+- **Optional:** Each team can customize their name on Buzzonk.
+- **Optional:** Update team names on the host screen (`Team 1`, `Team 2`, `Team 3`...)
 - **Optional:** Play the game!
 
-If you are very extra, you might find a use for [Jeopardy Soundboard](https://www.myinstants.com/en/search/?name=jeopardy) from Myinstants. 🙀
+If you are very extra, you might use [Jeopardy Soundboard](https://www.myinstants.com/en/search/?name=jeopardy) from Myinstants. 🙀
 
 ## Key Controls (for Host)
 
 **Optional.** During game play, you can press these keys to trigger actions and sound effects:
 
-| Key                | What it does     | Sound                                                                                                                            |
-| ------------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `Space` / `Return` | Show answer.     | <iframe frameborder="0" scrolling="no" src="https://freesound.org/embed/sound/iframe/264499/simple/small/" height="30"></iframe> |
-| `Escape`           | Close window.    | <iframe frameborder="0" scrolling="no" src="https://freesound.org/embed/sound/iframe/273833/simple/small/" height="30"></iframe> |
-| `5`                | Time limit beep. | [`timeout.mp3`](sounds/timeout.mp3)                                                                                              |
+| Key                | What it does           | Sound                                                                           |
+| ------------------ | ---------------------- | ------------------------------------------------------------------------------- |
+| `Space` / `Return` | Show answer.           | [crowd ooohs](sounds/264499__noah0189__crowd-ooohs-and-ahhhs-in-excitement.mp3) |
+| `Escape`           | Close window.          | [click sound](sounds/273833__alienxxx__micro_clicks_001.wav)                    |
+| `5`                | Gray out the question. | [timeout tone](sounds/timeout.mp3)                                              |
 
 ## How to Create a New Game?
 
@@ -59,7 +59,7 @@ If you are very extra, you might find a use for [Jeopardy Soundboard](https://ww
 
 ### How Many Questions?
 
-You don't have to use a 5x5 board, as shown in the sample game. See below, some examples of 1x4 and 4x1 boards:
+You don't have to use a 5x5 board (25 questions), as shown in the sample game. See below, some examples with as few as 1x4 and 4x1 layouts:
 
 | CSV file                                   | Input                                | Output                                |
 | ------------------------------------------ | ------------------------------------ | ------------------------------------- |
