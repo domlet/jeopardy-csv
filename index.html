@@ -17,10 +17,19 @@
 
 <body>
   <h1 id="title">
-    <img id="logo" src="images/jeopardy-logo.png" alt="Jeopardy Game Logo">
+    <img id="logo" src="images/jeopardy-csv-logo.png" alt="Jeopardy CSV Logo">
     <br />Jeopardy Game<br />
-    <input type="file" id="csvFile" accept=".csv" />
+    <!-- <input type="file" id="csvFile" accept=".csv" /> -->
+    <!-- <input type="file" id="csvFile" accept=".csv" style="display:none;"> -->
+    <input type="file" id="csvFile" accept=".csv" style="display:none;">
+    <label for="csvFile" class="drop-zone">
+      <div class="drop-zone-content">
+        <div class="drop-icon">📂</div>
+        <div class="drop-text">Drag & Drop CSV Here<br><small>or click to browse</small></div>
+      </div>
+    </label>
   </h1>
+
   <div id="game">
     <h4>Sample game</h4>
   </div>
