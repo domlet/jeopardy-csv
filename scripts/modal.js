@@ -6,12 +6,6 @@ window.initModalLogic = function ({ showAnswerBtn, answerDiv, oohSound, closeBtn
     answerDiv.style.display = "block";
   });
 
-  closeBtn.addEventListener("click", function () {
-    microclickSound.currentTime = 0;
-    microclickSound.play();
-    modal.style.display = "none";
-  });
-
   // Show answer with space or enter
   document.addEventListener("keydown", function (event) {
     if (event.key === " " || event.key === "Enter") {
@@ -21,13 +15,21 @@ window.initModalLogic = function ({ showAnswerBtn, answerDiv, oohSound, closeBtn
     }
   });
 
-  // Close modal with button or keys
-  closeBtn.onclick = () => (modal.style.display = "none");
+  // Close modal with button or keys or click
+  closeBtn.addEventListener("click", function () {
+    microclickSound.currentTime = 0;
+    microclickSound.play();
+    modal.style.display = "none";
+    document.getElementById("modal-content").style.backgroundColor = "#2a3598";
+  });
+
   document.addEventListener("keydown", function (event) {
+    closeBtn.onclick = () => (modal.style.display = "none");
     if (event.key === "x" || event.key === "X" || event.key === "Escape") {
       clickSound.currentTime = 0;
       clickSound.play();
       modal.style.display = "none";
+      document.getElementById("modal-content").style.backgroundColor = "#2a3598";
     }
   });
 

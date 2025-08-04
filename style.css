@@ -149,11 +149,11 @@ td:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 7vw;
+  font-size: 6vw;
 }
 
 #clue {
-  padding: 1em;
+  padding: 0 1em;
 }
 
 #close-btn {
