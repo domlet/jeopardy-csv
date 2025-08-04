@@ -140,7 +140,7 @@ td:hover {
 
 #modal-content {
   width: 100vw;
-  height: 95vh;
+  height: 80vh;
   background: #2a3598;
   position: relative;
   color: white;
@@ -189,12 +189,6 @@ td:hover {
 #close-btn:hover,
 #show-answer:hover {
   color: #fff;
-}
-
-#modal:where([style*="display: flex"], [style*="display: block"]) ~ .team-box-container,
-#modal[style*="display: flex"] ~ .team-box-container,
-#modal[style*="display: block"] ~ .team-box-container {
-  display: none !important;
 }
 
 /* Below are styles for team podiums (bottom) */
