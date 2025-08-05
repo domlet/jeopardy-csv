@@ -38,6 +38,10 @@ As host, you can use another device (ie, tablet or mobile device) to operate a b
 
 If you are very extra, you might use [Jeopardy Soundboard](https://www.myinstants.com/en/search/?name=jeopardy) from Myinstants. 🙀
 
+## Video Tutorial
+
+[![video thumbnail](images/jeopardy-csv-video-th.jpg)](https://youtu.be/ntUGZEJkuoA)
+
 ## Key Controls (for Host)
 
 **Optional.** During game play, you can press these keys to trigger actions and sound effects:
